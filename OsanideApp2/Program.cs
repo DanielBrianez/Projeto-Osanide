@@ -1,3 +1,5 @@
+using OsanideDesktop;
+
 namespace OsanideApp2
 {
     internal static class Program

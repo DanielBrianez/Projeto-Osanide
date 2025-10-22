@@ -1,21 +1,104 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using OsanideBLL;
+using OsanideDTO;
 
 namespace OsanideDesktop
 {
     public partial class frmLogin : Form
     {
+        private readonly FuncionarioBll funcionarioBll = new();
         public frmLogin()
         {
             InitializeComponent();
         }
 
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var usuario = funcionarioBll.Login(txtUsuario.Text, txtSenha.Text);
+                AppSession.UsuarioLogado = usuario;
+
+                if (AppSession.UsuarioLogado.TipoUsuario == TipoUsuario.Administrador)
+                {
+                    mdEntrar.Show($"Seja bem-vindo(a) {AppSession.UsuarioLogado.Nome}!");
+                    frmMenuAdmin principal = new frmMenuAdmin();
+                    principal.Show();
+                    Close(); 
+                }
+                else if (AppSession.UsuarioLogado.TipoUsuario == TipoUsuario.Funcionario)
+                {
+                    mdEntrar.Show($"Seja bem-vindo(a) {AppSession.UsuarioLogado.Nome}!");
+                    frmMain principal = new frmMain();
+                    principal.Show();
+                    Close();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void lblEsqueciSenha_Click_1(object sender, EventArgs e)
+        {
+            frmEsqueciSenha frmEsqueciSenha = new frmEsqueciSenha();
+            frmEsqueciSenha.Show();
+        }
+
+        private void lblCadastrar_Click(object sender, EventArgs e)
+        {
+            frmCadastrar frmCadastrar = new frmCadastrar();
+            frmCadastrar.Show();
+        }
+
+        private void chkSenha_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (chkSenha.Checked)
+            {
+                txtSenha.UseSystemPasswordChar = false;
+                chkSenha.Text = "Ocultar";
+            }
+            else
+            {
+                txtSenha.UseSystemPasswordChar = true;
+                chkSenha.Text = "Exibir";
+            }
+        }
+
+        private void txtSenha_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnEntrar.PerformClick();
+            }
+        }
+
+        private void txtUsuario_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (string.IsNullOrWhiteSpace(txtSenha.Text))
+                {
+                    txtSenha.Focus();
+                }
+                else
+                {
+                    btnEntrar.PerformClick();
+                }
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void btnSair_Click_1(object sender, EventArgs e)
+        {
+            var confirmacao = mdSair.Show("Deseja realmente sair?");
+
+            if (confirmacao == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
     }
 }

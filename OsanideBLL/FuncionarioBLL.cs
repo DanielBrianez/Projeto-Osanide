@@ -5,15 +5,13 @@ namespace OsanideBLL
 {
     public class FuncionarioBll
     {
-        public FuncionarioDTO? Login(string Login, string Senha)
+        public FuncionarioDTO Login(string login, string senha)
         {
-            var funcionario = Database.Funcionarios.FirstOrDefault(f => f.Login == Login && f.Senha == Senha);
+            var funcionario = Database.Funcionarios
+                .FirstOrDefault(f => f.Login == login && f.Senha == senha);
 
             if (funcionario == null)
-            {
-                throw new Exception("Usuário ou senha inválidos");
-            }
-
+                throw new Exception("Usuário ou senha inválidos.");
 
             return funcionario;
         }
@@ -22,37 +20,34 @@ namespace OsanideBLL
         {
             var funcionarios = Database.Funcionarios;
 
+            // Validações
             if (string.IsNullOrWhiteSpace(funcionario.Nome))
-            {
                 throw new Exception("Nome é obrigatório!");
-            }
 
             if (string.IsNullOrWhiteSpace(funcionario.Login))
-            {
                 throw new Exception("Login é obrigatório!");
-            }
 
-            if (string.IsNullOrEmpty(funcionario.Email))
-            {
-                throw new Exception("E-mail é obrigatório");
-            }
+            if (string.IsNullOrWhiteSpace(funcionario.Email))
+                throw new Exception("E-mail é obrigatório!");
 
             if (string.IsNullOrWhiteSpace(funcionario.Senha))
-            {
                 throw new Exception("Senha é obrigatória!");
+
+            if (funcionario.Cargo == 0)
+            {
+                throw new Exception("Cargo é obrigatório!");
+            }
+            if (string.IsNullOrWhiteSpace(funcionario.DataDeAdmissao))
+            {
+                // Preenche automaticamente com a data de hoje
+                funcionario.DataDeAdmissao = DateTime.Now.ToString("dd/MM/yyyy");
             }
 
-            if (string.IsNullOrWhiteSpace(funcionario.Cargo))
-            {
-                throw new Exception("Cargo é obrigatório");
-            }
-            if (!string.IsNullOrWhiteSpace(funcionario.DataDeAdmissao))
-            {
-                throw new Exception("Data de admissão é obrigatória, considere colocar a data de hoje");
-            }
+            // Evita duplicidade de login
+            if (funcionarios.Any(f => f.Login == funcionario.Login))
+                throw new Exception("Já existe um funcionário com esse login!");
 
             funcionarios.Add(funcionario);
-            Database.Funcionarios = funcionarios;
         }
 
         public void RedefinirSenha(string login, string novaSenha)
@@ -65,30 +60,15 @@ namespace OsanideBLL
         }
 
         public List<FuncionarioDTO> ListarFuncionarios() => Database.Funcionarios;
+
         public void RemoverFuncionario(int id)
         {
-            var funcionario = Database.Funcionarios.FirstOrDefault(funcionario => funcionario.Id == id);
+            var funcionario = Database.Funcionarios.FirstOrDefault(f => f.Id == id);
             if (funcionario == null)
-            {
                 throw new Exception("Funcionário não encontrado.");
-            }
 
             Database.Funcionarios.Remove(funcionario);
         }
-
-        public void AtualizarFuncionarios(FuncionarioDTO funcionarioDTO)
-        {
-            var funcionarioExistente = Database.Funcionarios.FirstOrDefault(funcionario => funcionario.Id == funcionarioDTO.Id);
-            if (funcionarioExistente == null)
-                throw new Exception("Funcionário não encontrado.");
-
-            if (string.IsNullOrWhiteSpace(funcionarioDTO.Nome))
-                throw new Exception("Nome é obrigatório.");
-
-            funcionarioExistente.Nome = funcionarioDTO.Nome;
-            funcionarioExistente.Login = funcionarioDTO.Login;
-            funcionarioExistente.Cargo = funcionarioDTO.Cargo;
-            funcionarioExistente.Email = funcionarioDTO.Email;
-        }
     }
 }
+
