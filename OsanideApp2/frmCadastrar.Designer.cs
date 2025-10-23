@@ -88,6 +88,7 @@
             chkSenha.UncheckedState.BorderRadius = 0;
             chkSenha.UncheckedState.BorderThickness = 0;
             chkSenha.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            chkSenha.CheckedChanged += chkSenha_CheckedChanged;
             // 
             // btnCadastrar
             // 

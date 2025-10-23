@@ -67,6 +67,7 @@ namespace OsanideDesktop
                 txtNovaSenha.Text = "";
                 txtConfirmarSenha.Text = "";
                 txtLogin.Focus();
+                Close();
             }
             catch (Exception ex)
             {

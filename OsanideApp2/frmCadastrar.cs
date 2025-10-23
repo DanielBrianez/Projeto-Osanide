@@ -56,6 +56,7 @@ namespace OsanideDesktop
                 FuncionarioBll.CadastrarFuncionario(funcionario);
                 MessageBox.Show($"Funcionário {funcionario.Nome} cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimparCampos();
+                Close();
             }
             catch (Exception ex)
             {
@@ -83,7 +84,7 @@ namespace OsanideDesktop
             var confirmacao = mdSair.Show("Deseja realmente sair?");
 
             if (confirmacao == DialogResult.Yes)
-            { 
+            {
                 Close();
             }
         }
@@ -92,6 +93,20 @@ namespace OsanideDesktop
         {
             cboCargo.DataSource = Enum.GetValues(typeof(TipoUsuario));
             cboCargo.SelectedIndex = 0; // seleciona a primeira opção por padrão
+        }
+
+        private void chkSenha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkSenha.Checked)
+            {
+                txtSenha.UseSystemPasswordChar = false;
+                chkSenha.Text = "Ocultar";
+            }
+            else
+            {
+                txtSenha.UseSystemPasswordChar = true;
+                chkSenha.Text = "Exibir";
+            }
         }
     }
 }

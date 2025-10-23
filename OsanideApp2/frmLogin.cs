@@ -21,16 +21,16 @@ namespace OsanideDesktop
                 if (AppSession.UsuarioLogado.TipoUsuario == TipoUsuario.Administrador)
                 {
                     mdEntrar.Show($"Seja bem-vindo(a) {AppSession.UsuarioLogado.Nome}!");
-                    frmMenuAdmin principal = new frmMenuAdmin();
-                    principal.Show();
-                    Close(); 
+                    frmMainAdmin principalAdmin = new frmMainAdmin();
+                    principalAdmin.Show();
+                    Hide(); 
                 }
                 else if (AppSession.UsuarioLogado.TipoUsuario == TipoUsuario.Funcionario)
                 {
                     mdEntrar.Show($"Seja bem-vindo(a) {AppSession.UsuarioLogado.Nome}!");
-                    frmMain principal = new frmMain();
-                    principal.Show();
-                    Close();
+                    frmMainFuncionarios principalFuncionario = new frmMainFuncionarios();
+                    principalFuncionario.Show();
+                    Hide();
                 }
 
 
@@ -97,7 +97,7 @@ namespace OsanideDesktop
 
             if (confirmacao == DialogResult.Yes)
             {
-                Close();
+                Application.Exit();
             }
         }
     }

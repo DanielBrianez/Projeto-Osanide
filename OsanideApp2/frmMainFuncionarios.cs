@@ -2,9 +2,9 @@
 
 namespace OsanideDesktop
 {
-    public partial class frmMain : Form
+    public partial class frmMainFuncionarios : Form
     {
-        public frmMain()
+        public frmMainFuncionarios()
         {
             InitializeComponent();
         }
@@ -34,18 +34,6 @@ namespace OsanideDesktop
             }
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            panelConteudo.Controls.Clear();
-            AbrirUserControl(new ucHome());
-        }
-
-        private void btnFuncionarios_Click(object sender, EventArgs e)
-        {
-            panelConteudo.Controls.Clear();
-            AbrirUserControl(new ucFuncionarios());
-        }
-
         private void btnProdutos_Click(object sender, EventArgs e)
         {
             panelConteudo.Controls.Clear();
@@ -54,7 +42,14 @@ namespace OsanideDesktop
 
         private void frmMain_Load_1(object sender, EventArgs e)
         {
-            AbrirUserControl(new ucHome());
+            AbrirUserControl(new ucProdutos());
+            lblUsuario.Text = $"Seja bem-vindo(a) {AppSession.UsuarioLogado.Nome}!";
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            frmConfig configurar = new frmConfig();
+            configurar.Show();
         }
     }
 }

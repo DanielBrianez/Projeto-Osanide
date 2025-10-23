@@ -216,8 +216,8 @@
             mdEntrar.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
             mdEntrar.Caption = null;
             mdEntrar.Icon = Guna.UI2.WinForms.MessageDialogIcon.None;
-            mdEntrar.Parent = null;
-            mdEntrar.Style = Guna.UI2.WinForms.MessageDialogStyle.Default;
+            mdEntrar.Parent = this;
+            mdEntrar.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
             mdEntrar.Text = null;
             // 
             // chkSenha
