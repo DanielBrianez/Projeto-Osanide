@@ -216,6 +216,7 @@
             Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmMainFuncionarios";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMain";
             Load += frmMain_Load_1;
             guna2Panel1.ResumeLayout(false);

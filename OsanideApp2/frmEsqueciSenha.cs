@@ -79,5 +79,10 @@ namespace OsanideDesktop
         {
             this.Close();
         }
+
+        private void frmEsqueciSenha_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

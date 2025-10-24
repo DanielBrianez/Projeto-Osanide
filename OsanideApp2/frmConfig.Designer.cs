@@ -314,6 +314,7 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmConfig";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmConfig";
             Load += frmConfig_Load;
             ResumeLayout(false);

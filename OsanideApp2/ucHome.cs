@@ -23,7 +23,7 @@ namespace OsanideDesktop
 
         private void ContarQtdEstoque()
         {
-            lblQtdEstoque.Text = Database.QtdEstoque.Count.ToString();
+            lblQtdEstoque.Text = Database.Produtos.Sum(p => p.QtdEstoque).ToString();
         }
 
         private void ContarProdutos()

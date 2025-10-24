@@ -50,6 +50,7 @@
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             btnFechar = new Guna.UI2.WinForms.Guna2CircleButton();
             guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            lblUsuario = new Label();
             btnProdutos = new Guna.UI2.WinForms.Guna2Button();
             btnFuncionarios = new Guna.UI2.WinForms.Guna2Button();
             btnConfig = new Guna.UI2.WinForms.Guna2Button();
@@ -59,7 +60,6 @@
             panelConteudo = new Guna.UI2.WinForms.Guna2Panel();
             mdNotifica = new Guna.UI2.WinForms.Guna2MessageDialog();
             mdSair = new Guna.UI2.WinForms.Guna2MessageDialog();
-            lblUsuario = new Label();
             guna2Panel1.SuspendLayout();
             guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -116,6 +116,17 @@
             guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges15;
             guna2Panel3.Size = new Size(800, 65);
             guna2Panel3.TabIndex = 5;
+            // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.Font = new Font("Century Gothic", 9F);
+            lblUsuario.ForeColor = Color.White;
+            lblUsuario.Location = new Point(188, 24);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(152, 17);
+            lblUsuario.TabIndex = 10;
+            lblUsuario.Text = "Seja bem vindo, usuário!";
             // 
             // btnProdutos
             // 
@@ -240,17 +251,6 @@
             mdSair.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
             mdSair.Text = null;
             // 
-            // lblUsuario
-            // 
-            lblUsuario.AutoSize = true;
-            lblUsuario.Font = new Font("Century Gothic", 9F);
-            lblUsuario.ForeColor = Color.White;
-            lblUsuario.Location = new Point(188, 24);
-            lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(152, 17);
-            lblUsuario.TabIndex = 10;
-            lblUsuario.Text = "Seja bem vindo, usuário!";
-            // 
             // frmMainAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -261,6 +261,7 @@
             Controls.Add(panelConteudo);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmMainAdmin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmMainAdmin";
             Load += frmMainAdmin_Load;
             guna2Panel1.ResumeLayout(false);
