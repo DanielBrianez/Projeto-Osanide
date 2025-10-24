@@ -23,15 +23,15 @@ Funcionalidades: login, cadastro, atualização, exclusão, reset de senha e per
 
 🗂️ Estrutura do Projeto
 OsanideDesktop/
-├─ DAL/          # Persistência JSON
-├─ DTO/          # Objetos de transferência
-├─ BLL/          # Regras de negócio
-├─ Desktop/      # Forms e UserControls
-│  ├─ ucProdutos.cs
-│  └─ ucUsuarios.cs
-├─ Data/         # JSONs gerados automaticamente
-├─ Resources/    # Assets
-└─ README.md
+─ DAL/          # Persistência JSON
+─ DTO/          # Objetos de transferência
+─ BLL/          # Regras de negócio
+─ Desktop/      # Forms e UserControls
+  ─ ucProdutos.cs
+  ─ ucUsuarios.cs
+─ Data/         # JSONs gerados automaticamente
+─ Resources/    # Assets
+─ README.md
 
 🚀 Como Usar
 
