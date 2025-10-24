@@ -20,5 +20,6 @@ namespace OsanideDAL
             get => JsonDatabase.Ler<ProdutoDTO>("qtdEstoque.Json");
             set => JsonDatabase.Salvar("qtdEstoque.Json", value);
         }
+
     }
 }

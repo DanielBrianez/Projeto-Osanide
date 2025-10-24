@@ -121,6 +121,7 @@ namespace OsanideDesktop
                 funcionarioBLL.AtualizarFuncionario(usuarioAtualizado);
 
                 MessageBox.Show($"Funcionario {usuarioAtualizado.Nome} atualizado com sucesso!");
+                AtualizarGrid();
             }
             catch (Exception ex)
             {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -58,10 +59,10 @@
             btnCadastrar = new Guna.UI2.WinForms.Guna2Button();
             btnAtualizar = new Guna.UI2.WinForms.Guna2Button();
             btnExcluir = new Guna.UI2.WinForms.Guna2Button();
-            btnPesquisar = new Guna.UI2.WinForms.Guna2Button();
+            btnPesquisa = new Guna.UI2.WinForms.Guna2Button();
             dgProdutos = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
-            txtPesquisar = new Guna.UI2.WinForms.Guna2TextBox();
+            txtPesquisa = new Guna.UI2.WinForms.Guna2TextBox();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -69,6 +70,7 @@
             guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtCategoria = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(components);
             ((System.ComponentModel.ISupportInitialize)dgProdutos).BeginInit();
             SuspendLayout();
             // 
@@ -179,6 +181,7 @@
             btnAtualizar.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAtualizar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAtualizar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAtualizar.Enabled = false;
             btnAtualizar.FillColor = Color.FromArgb(2, 63, 29);
             btnAtualizar.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAtualizar.ForeColor = Color.White;
@@ -188,6 +191,7 @@
             btnAtualizar.Size = new Size(110, 36);
             btnAtualizar.TabIndex = 5;
             btnAtualizar.Text = "Atualizar";
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // btnExcluir
             // 
@@ -206,24 +210,26 @@
             btnExcluir.Size = new Size(110, 36);
             btnExcluir.TabIndex = 6;
             btnExcluir.Text = "Excluir";
+            btnExcluir.Click += btnExcluir_Click;
             // 
-            // btnPesquisar
+            // btnPesquisa
             // 
-            btnPesquisar.BorderRadius = 10;
-            btnPesquisar.CustomizableEdges = customizableEdges15;
-            btnPesquisar.DisabledState.BorderColor = Color.DarkGray;
-            btnPesquisar.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnPesquisar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnPesquisar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnPesquisar.FillColor = Color.FromArgb(2, 63, 29);
-            btnPesquisar.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPesquisar.ForeColor = Color.White;
-            btnPesquisar.Location = new Point(639, 77);
-            btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnPesquisar.Size = new Size(105, 36);
-            btnPesquisar.TabIndex = 7;
-            btnPesquisar.Text = "Pesquisar";
+            btnPesquisa.BorderRadius = 10;
+            btnPesquisa.CustomizableEdges = customizableEdges15;
+            btnPesquisa.DisabledState.BorderColor = Color.DarkGray;
+            btnPesquisa.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnPesquisa.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnPesquisa.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnPesquisa.FillColor = Color.FromArgb(2, 63, 29);
+            btnPesquisa.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPesquisa.ForeColor = Color.White;
+            btnPesquisa.Location = new Point(639, 77);
+            btnPesquisa.Name = "btnPesquisa";
+            btnPesquisa.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnPesquisa.Size = new Size(105, 36);
+            btnPesquisa.TabIndex = 7;
+            btnPesquisa.Text = "Pesquisar";
+            btnPesquisa.Click += btnPesquisa_Click;
             // 
             // dgProdutos
             // 
@@ -274,6 +280,7 @@
             dgProdutos.ThemeStyle.RowsStyle.Height = 25;
             dgProdutos.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgProdutos.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgProdutos.CellClick += dgProdutos_CellClick;
             // 
             // guna2TextBox5
             // 
@@ -295,25 +302,26 @@
             guna2TextBox5.Size = new Size(350, 36);
             guna2TextBox5.TabIndex = 9;
             // 
-            // txtPesquisar
+            // txtPesquisa
             // 
-            txtPesquisar.BorderRadius = 10;
-            txtPesquisar.CustomizableEdges = customizableEdges19;
-            txtPesquisar.DefaultText = "";
-            txtPesquisar.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtPesquisar.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtPesquisar.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtPesquisar.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtPesquisar.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPesquisar.Font = new Font("Segoe UI", 9F);
-            txtPesquisar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPesquisar.Location = new Point(394, 77);
-            txtPesquisar.Name = "txtPesquisar";
-            txtPesquisar.PlaceholderText = "";
-            txtPesquisar.SelectedText = "";
-            txtPesquisar.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            txtPesquisar.Size = new Size(239, 36);
-            txtPesquisar.TabIndex = 10;
+            txtPesquisa.BorderRadius = 10;
+            txtPesquisa.CustomizableEdges = customizableEdges19;
+            txtPesquisa.DefaultText = "";
+            txtPesquisa.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtPesquisa.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtPesquisa.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtPesquisa.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtPesquisa.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtPesquisa.Font = new Font("Segoe UI", 9F);
+            txtPesquisa.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtPesquisa.Location = new Point(394, 77);
+            txtPesquisa.Name = "txtPesquisa";
+            txtPesquisa.PlaceholderText = "";
+            txtPesquisa.SelectedText = "";
+            txtPesquisa.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            txtPesquisa.Size = new Size(239, 36);
+            txtPesquisa.TabIndex = 10;
+            txtPesquisa.TextChanged += txtPesquisar_TextChanged;
             // 
             // guna2HtmlLabel1
             // 
@@ -392,6 +400,12 @@
             guna2HtmlLabel7.TabIndex = 17;
             guna2HtmlLabel7.Text = "Digite o nome do produto:";
             // 
+            // guna2BorderlessForm1
+            // 
+            guna2BorderlessForm1.ContainerControl = this;
+            guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
             // ucProdutos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -404,10 +418,10 @@
             Controls.Add(guna2HtmlLabel3);
             Controls.Add(guna2HtmlLabel2);
             Controls.Add(guna2HtmlLabel1);
-            Controls.Add(txtPesquisar);
+            Controls.Add(txtPesquisa);
             Controls.Add(guna2TextBox5);
             Controls.Add(dgProdutos);
-            Controls.Add(btnPesquisar);
+            Controls.Add(btnPesquisa);
             Controls.Add(btnExcluir);
             Controls.Add(btnAtualizar);
             Controls.Add(btnCadastrar);
@@ -432,10 +446,10 @@
         private Guna.UI2.WinForms.Guna2Button btnCadastrar;
         private Guna.UI2.WinForms.Guna2Button btnAtualizar;
         private Guna.UI2.WinForms.Guna2Button btnExcluir;
-        private Guna.UI2.WinForms.Guna2Button btnPesquisar;
+        private Guna.UI2.WinForms.Guna2Button btnPesquisa;
         private Guna.UI2.WinForms.Guna2DataGridView dgProdutos;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
-        private Guna.UI2.WinForms.Guna2TextBox txtPesquisar;
+        private Guna.UI2.WinForms.Guna2TextBox txtPesquisa;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
@@ -443,5 +457,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel txtCategoria;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }
