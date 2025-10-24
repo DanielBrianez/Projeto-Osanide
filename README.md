@@ -1,71 +1,39 @@
 🌿 Osanide Desktop App
 
-Osanide Desktop App é um projeto de loja de ervas em C# usando .NET 8.0, com banco de dados JSON.
-O sistema gerencia produtos, funcionários e administradores, incluindo login seguro, reset de senha, exclusão de usuários e permissões diferenciadas.
+Um projeto de loja de ervas feito em C# com .NET 8.0, com banco de dados em JSON, que gerencia produtos, funcionários e administradores de forma completa e segura.
 
-🔹 Funcionalidades
-Produtos
+Funcionalidades: login, cadastro, atualização, exclusão, reset de senha e permissões diferenciadas.
 
-Cadastrar novos produtos (nome, categoria, descrição, preço, quantidade em estoque)
+✨ Destaques
 
-Atualizar produtos existentes
+- Cadastro e atualização de produtos (nome, categoria, descrição, preço, estoque)
+- Gerenciamento de usuários: funcionários e admins
+- Sistema de login completo com validação e reset de senha
+- Busca em tempo real para produtos e usuários
+- Persistência de dados com JSON (sem SQL pesado)
+- Interface limpa e intuitiva, com DataGridView customizado
+- Modularidade com DTO / BLL / DAL
 
-Excluir produtos
+💻 Tecnologias
 
-Buscar produtos pelo nome em tempo real
+- C# .NET 8.0
+- Windows Forms (WinForms)
+- JSON para armazenamento local
+- Arquitetura DTO / BLL / DAL
 
-Usuários
-
-Cadastrar novos usuários: funcionários e administradores
-
-Atualizar dados de usuários
-
-Excluir usuários
-
-Reset de senha
-
-Diferenciação de permissões (ex.: administrador vs funcionário)
-
-Login completo com validação de credenciais
-
-Recursos extras
-
-Validação completa de campos obrigatórios
-
-Tratamento de erros de conversão (ex: preço ou quantidade inválidos)
-
-Interface amigável com DataGridView customizado
-
-Persistência de dados via JSON (JsonDatabase)
-
-Sistema modular baseado em DTO / BLL / DAL
-
-🔹 Tecnologias Utilizadas
-
-C# .NET 8.0 / Windows Forms
-
-DataGridView para visualização de produtos e usuários
-
-JSON para armazenamento local
-
-Arquitetura DTO / BLL / DAL para separação de responsabilidades
-
-Sistema de login e autenticação local
-
-🔹 Estrutura do Projeto
+🗂️ Estrutura do Projeto
 OsanideDesktop/
-├─ DAL/               # Persistência JSON
-├─ DTO/               # Objetos de transferência (ProdutoDTO, UsuarioDTO)
-├─ BLL/               # Regras de negócio (ProdutoBLL, UsuarioBLL)
-├─ Desktop/           # Forms e UserControls
+├─ DAL/          # Persistência JSON
+├─ DTO/          # Objetos de transferência
+├─ BLL/          # Regras de negócio
+├─ Desktop/      # Forms e UserControls
 │  ├─ ucProdutos.cs
 │  └─ ucUsuarios.cs
-├─ Data/              # JSONs gerados automaticamente
-├─ Resources/         # Assets
-├─ README.md
-└─ License.txt
+├─ Data/         # JSONs gerados automaticamente
+├─ Resources/    # Assets
+└─ README.md
 
-🔹 Como Usar
+🚀 Como Usar
 
 Clone o projeto:
 
@@ -74,27 +42,19 @@ git clone https://github.com/seu-usuario/osanide-desktop.git
 
 Abra no Visual Studio
 
-Compile e rode o projeto
+Compile e execute
 
-Use a interface para cadastrar, atualizar, excluir e buscar produtos e usuários
+Cadastre produtos e usuários
 
-Faça login com um usuário cadastrado para acessar permissões administrativas
+Faça login para acessar funções administrativas
 
-🔹 Observações importantes
+🎨 Créditos
 
-IDs de produtos e usuários são gerados automaticamente
+BackEnd: Daniel Nascimento
 
-Para atualizar produtos ou usuários, selecione a linha correspondente no DataGridView
+FrontEnd / Interface: Maryana Olvra (a musa do design ❤️)
 
-O sistema diferencia funcionários e administradores
-
-🔹 Créditos
-
-Desenvolvimento BackEnd: Daniel Nascimento
-
-FrontEnd / Interface: Maryana Olvra
-
-🔹 Licença MIT
+📄 Licença MIT
 MIT License
 
 Copyright (c) 2025 Daniel Nascimento
